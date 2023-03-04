@@ -19,14 +19,16 @@ export default function Deck({ question, answer, index }) {
   return (
     <Container>
       {statusCard === 1 ? <Card>
-        <div><p>Pergunta {index +1}</p>
-        <img onClick = {closeCard} src={iconTurn1}></img></div>
-        
+        <div>
+          <p>Pergunta {index +1}</p>
+          <img onClick = {closeCard} src={iconTurn1}></img></div>
       </Card> : ""}
+
       {statusCard === 2 ? <CardQuestion>
         <p>{question}</p>
         <img onClick = {closeCard} src={iconTurn2}></img>
       </CardQuestion> : ""}
+
       {statusCard === 3 ? <CardAnswer>
         <p>{answer}</p>
         <Buttons>
@@ -35,6 +37,7 @@ export default function Deck({ question, answer, index }) {
           <button>Zap!</button>
         </Buttons>
       </CardAnswer> : ""}
+      
     </Container>
   )
 }

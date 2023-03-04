@@ -4,6 +4,7 @@ import cards from '../cards';
 
 export default function Footer() {
     const numberQuestions = cards.length;
+
     return (
         <FooterStyle>
             <p>/{numberQuestions} CONCLUÍDOS</p>
@@ -13,7 +14,7 @@ export default function Footer() {
 }
 
 const FooterStyle = styled.div `
-    width: 375px;
+    width: 100%;
     height: 70px;
     background-color: #FFFFFF;
     position: absolute;

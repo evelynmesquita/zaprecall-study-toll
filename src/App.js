@@ -26,8 +26,7 @@ export default function App() {
 
 
 const Root = styled.div`
-  width: 375px;
-  height: 667px;
+  width: 100%;
   position: relative;
   background-color: #FB6B6B;
 `
