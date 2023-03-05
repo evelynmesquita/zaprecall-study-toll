@@ -28,4 +28,5 @@ const FooterStyle = styled.div `
     font-size: 18px;
     line-height: 22px;
     z-index: 1;
+    position: fixed;
 `

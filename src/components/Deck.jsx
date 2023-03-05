@@ -111,6 +111,7 @@ const CardQuestion = styled.div`
     top: 105px;
     left: 255px
   }
+
 `
 
 const CardAnswer = styled.div`
