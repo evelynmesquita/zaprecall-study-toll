@@ -8,7 +8,6 @@ import styled from "styled-components"
 import CardsAll from "./components/CardsAll";
 
 export default function App() {
-  const [finalizadas, setFinalizadas] = useState([]);
   
   return (
     <Root>

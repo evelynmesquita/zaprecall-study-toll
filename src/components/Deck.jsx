@@ -7,7 +7,7 @@ import iconRight from '../assets/icone_certo.png';
 import iconError from '../assets/icone_erro.png';
 import iconAlmost from '../assets/icone_quase.png';
 
-export default function Deck({ question, answer, index, finalizadas, setFinalizadas }) {
+export default function Deck({ question, answer, index}) {
 
   const [statusCard, setStatusCard] = useState(1);
   const [finalCard, setFinalCard] = useState(0);
