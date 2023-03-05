@@ -7,37 +7,57 @@ import iconRight from '../assets/icone_certo.png';
 import iconError from '../assets/icone_erro.png';
 import iconAlmost from '../assets/icone_quase.png';
 
-export default function Deck({ question, answer, index }) {
+export default function Deck({ question, answer, index, finalizadas, setFinalizadas }) {
 
   const [statusCard, setStatusCard] = useState(1);
   const [finalCard, setFinalCard] = useState(0);
 
   function closeCard() {
     setStatusCard(statusCard + 1)
-  } 
+  }
+
+  function takeAnswer(verify) {
+    setFinalCard(verify);
+    closeCard()
+  }
+
+  function iconAnswer() {
+    if (finalCard === undefined) {
+      return [iconAlmost, "#ff922e", "partial-icon"];
+    }
+    if (finalCard === true) {
+      return [iconRight, "#2fbe34", "zap-icon"];
+    }
+    return [iconError, "#ff3030", "no-icon"];
+  }
 
   return (
     <Container>
       {statusCard === 1 ? <Card>
         <div>
-          <p>Pergunta {index +1}</p>
-          <img onClick = {closeCard} src={iconTurn1}></img></div>
+          <p>Pergunta {index + 1}</p>
+          <img onClick={closeCard} src={iconTurn1}></img></div>
       </Card> : ""}
 
       {statusCard === 2 ? <CardQuestion>
         <p>{question}</p>
-        <img onClick = {closeCard} src={iconTurn2}></img>
+        <img onClick={closeCard} src={iconTurn2}></img>
       </CardQuestion> : ""}
 
       {statusCard === 3 ? <CardAnswer>
         <p>{answer}</p>
         <Buttons>
-          <button> Não lembrei</button>
-          <button>Quase não lembrei</button>
-          <button>Zap!</button>
+          <button onClick={() => takeAnswer(false)}> Não lembrei</button>
+          <button onClick={() => takeAnswer()}>Quase não lembrei</button>
+          <button onClick={() => takeAnswer(true)}>Zap!</button>
         </Buttons>
       </CardAnswer> : ""}
-      
+
+      {statusCard === 4 && <CardAnswered>
+        <p data-test="flashcard-text" style={{ color: iconAnswer()[1], textDecoration: "line-through", textDecorationThickness: "10%" }}>Pergunta {index + 1}</p>
+        <img data-test={iconAnswer()[3]} src={iconAnswer()[0]} alt="icone" />
+      </CardAnswered>}
+
     </Container>
   )
 }
@@ -129,12 +149,13 @@ const CardAnswer = styled.div`
 
   p {
     margin-top: 18px;
-    margin-left: 15px ;
+    margin-left: 15px;
+    width: 270px;
+    height: 44px;
   }
 `
 
 const Buttons = styled.div`
-    /*  */
     display: flex;
     gap: 8px;
     justify-content: center;
@@ -172,3 +193,34 @@ const Buttons = styled.div`
         background-color: #2fbe34;
     }
 `;
+
+export const CardAnswered = styled.div`
+  width: 265px;
+  height: 65px;
+  padding-right: 15px;
+  padding-left: 20px;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  background: #FFFFFF;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Recursive', sans-serif;
+  color: #333333;
+    > p {
+        font-family: 'Recursive', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #333333;
+    }
+`;
+
