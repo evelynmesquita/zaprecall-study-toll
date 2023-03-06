@@ -7,7 +7,7 @@ import iconRight from '../assets/icone_certo.png';
 import iconError from '../assets/icone_erro.png';
 import iconAlmost from '../assets/icone_quase.png';
 
-export default function Deck({ question, answer, index}) {
+export default function Deck({ question, answer, index }) {
 
   const [statusCard, setStatusCard] = useState(1);
   const [finalCard, setFinalCard] = useState(0);
@@ -34,27 +34,32 @@ export default function Deck({ question, answer, index}) {
   return (
     <Container>
       {statusCard === 1 ? <Card>
-        <div>
-          <p>Pergunta {index + 1}</p>
-          <img onClick={closeCard} src={iconTurn1}></img></div>
+        <div data-test="flashcard">
+          <p data-test="flashcard-text" >Pergunta {index + 1}</p>
+          <img data-test="play-btn" onClick={closeCard} src={iconTurn1}></img></div>
       </Card> : ""}
 
       {statusCard === 2 ? <CardQuestion>
-        <p>{question}</p>
-        <img onClick={closeCard} src={iconTurn2}></img>
+        <p data-test="flashcard-text" >{question}</p>
+        <img data-test="turn-btn" onClick={closeCard} src={iconTurn2}></img>
       </CardQuestion> : ""}
 
       {statusCard === 3 ? <CardAnswer>
-        <p>{answer}</p>
+        <p data-test="flashcard-text">{answer}</p>
         <Buttons>
-          <button onClick={() => takeAnswer(false)}> Não lembrei</button>
-          <button onClick={() => takeAnswer()}>Quase não lembrei</button>
-          <button onClick={() => takeAnswer(true)}>Zap!</button>
+          <button data-test="no-btn" onClick={() => takeAnswer(false)}> Não lembrei</button>
+          <button data-test="partial-btn" onClick={() => takeAnswer()}>Quase não lembrei</button>
+          <button data-test="zap-btn" onClick={() => takeAnswer(true)}>Zap!</button>
         </Buttons>
       </CardAnswer> : ""}
 
       {statusCard === 4 && <CardAnswered>
-        <p data-test="flashcard-text" style={{ color: iconAnswer()[1], textDecoration: "line-through", textDecorationThickness: "10%" }}>Pergunta {index + 1}</p>
+        <p data-test="flashcard-text"
+          style={{
+            color: iconAnswer()[1],
+            textDecoration: "line-through",
+            textDecorationThickness: "10%"
+          }}>Pergunta {index + 1}</p>
         <img data-test={iconAnswer()[3]} src={iconAnswer()[0]} alt="icone" />
       </CardAnswered>}
 

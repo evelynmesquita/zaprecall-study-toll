@@ -7,7 +7,7 @@ export default function Footer() {
 
     return (
         <FooterStyle>
-            <p>0/{numberQuestions} CONCLUÍDOS</p>
+            <p data-test="footer" >0/{numberQuestions} CONCLUÍDOS</p>
         </FooterStyle>
 
     )
