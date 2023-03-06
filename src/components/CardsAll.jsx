@@ -1,7 +1,7 @@
 import cards from '../cards';
 import Deck from './Deck';
 
-export default function CardsAll({ finalizadas, setFinalizadas }) {
+export default function CardsAll({ doneCards, setDoneCards }) {
 
     return (cards.map((card, index) =>
         <Deck
@@ -9,7 +9,7 @@ export default function CardsAll({ finalizadas, setFinalizadas }) {
             question={card.question}
             answer={card.answer}
             index={index}
-            finalizadas={finalizadas}
-            setFinalizadas={setFinalizadas}
+            doneCards={doneCards}
+            setDoneCards={setDoneCards}
         />));
 }

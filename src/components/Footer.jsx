@@ -2,12 +2,12 @@ import styled from "styled-components"
 
 import cards from '../cards';
 
-export default function Footer() {
+export default function Footer({doneCards}) {
     const numberQuestions = cards.length;
 
     return (
         <FooterStyle>
-            <p data-test="footer" >0/{numberQuestions} CONCLUÍDOS</p>
+            <p data-test="footer" >{doneCards.length}/{numberQuestions} CONCLUÍDOS</p>
         </FooterStyle>
 
     )

@@ -8,16 +8,17 @@ import styled from "styled-components"
 import CardsAll from "./components/CardsAll";
 
 export default function App() {
+  const [doneCards, setDoneCards] = useState([]);
   
   return (
     <Root>
       <ContainerCards>
         <Top />
 
-        <CardsAll/>
+        <CardsAll doneCards={doneCards} setDoneCards={setDoneCards}/>
       </ContainerCards>
 
-      <Footer />
+      <Footer doneCards={doneCards}/>
 
     </Root>
   );
