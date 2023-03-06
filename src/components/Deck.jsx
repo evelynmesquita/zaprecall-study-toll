@@ -33,18 +33,18 @@ export default function Deck({ question, answer, index }) {
 
   return (
     <Container>
-      {statusCard === 1 ? <Card>
-        <div data-test="flashcard">
+      {statusCard === 1 ? <Card data-test="flashcard">
+        <div>
           <p data-test="flashcard-text" >Pergunta {index + 1}</p>
           <img data-test="play-btn" onClick={closeCard} src={iconTurn1}></img></div>
       </Card> : ""}
 
-      {statusCard === 2 ? <CardQuestion>
+      {statusCard === 2 ? <CardQuestion data-test="flashcard">
         <p data-test="flashcard-text" >{question}</p>
         <img data-test="turn-btn" onClick={closeCard} src={iconTurn2}></img>
       </CardQuestion> : ""}
 
-      {statusCard === 3 ? <CardAnswer>
+      {statusCard === 3 ? <CardAnswer data-test="flashcard">
         <p data-test="flashcard-text">{answer}</p>
         <Buttons>
           <button data-test="no-btn" onClick={() => takeAnswer(false)}> Não lembrei</button>
@@ -53,7 +53,7 @@ export default function Deck({ question, answer, index }) {
         </Buttons>
       </CardAnswer> : ""}
 
-      {statusCard === 4 && <CardAnswered>
+      {statusCard === 4 && <CardAnswered data-test="flashcard">
         <p data-test="flashcard-text"
           style={{
             color: iconAnswer()[1],
