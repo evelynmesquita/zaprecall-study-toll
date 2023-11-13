@@ -6,7 +6,7 @@ In our fast-paced world, learning and remembering information can be challenging
 </p>
 
 ## About
-ZapRecall is a study tool designed to enhance content retention through active recall. Users can effortlessly select their preferred card set (by default includes React and Naruto), respond to the chosen cards, and receive instant feedback on their accuracy. ZapRecall empowers users to monitor their learning progress and provides a percentage score to gauge their knowledge retention.
+ZapRecall is a study tool designed to enhance content retention through active recall. Users can effortlessly select their preferred card set, respond to the chosen cards, and receive instant feedback on their accuracy. ZapRecall empowers users to monitor their learning progress and provides a percentage score to gauge their knowledge retention.
 
 ## Technologies
 The following tools and frameworks were used in the construction of the project:
